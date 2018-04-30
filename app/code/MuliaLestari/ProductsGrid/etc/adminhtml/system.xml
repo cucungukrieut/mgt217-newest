@@ -38,7 +38,7 @@
                 </field>
                 <field id="qty_bruto" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
                     <label>Quantity Bruto</label>
-                    <comment>Quantity yang ti jual Bruto.</comment>
+                    <comment>Quantity yang di jual Bruto.</comment>
                 </field>
                 <field id="qty_netto" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Quantity Netto</label>
@@ -46,7 +46,7 @@
                 </field>
                 <field id="kategori" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
                     <label>Kategori Produk</label>
-                    <comment>Ktegori dari master produk.</comment>
+                    <comment>Kategori dari master produk.</comment>
                 </field>
                 <field id="harga" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
                     <label>Harga</label>
@@ -58,11 +58,11 @@
                 </field>
                 <field id="gramasi" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
                     <label>Gramasi</label>
-                    <comment>Gramasai warna produk.</comment>
+                    <comment>Gramasi warna produk.</comment>
                 </field>
                 <field id="lot" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
                     <label>Lot</label>
-                    <comment>Kombinasi nomor bahan baku yang dipakai.</comment>
+                    <comment>Kombinasi nomor bahan baku yang di pakai.</comment>
                 </field>
                 <field id="img_url" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
                     <label>URL Gambar</label>
@@ -70,7 +70,7 @@
                 </field>
                 <field id="kategori_warna" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
                     <label>Kategori Warna</label>
-                    <comment>Kategori unutk warna produk.</comment>
+                    <comment>Kategori untuk warna produk.</comment>
                 </field>
 
             </group>
