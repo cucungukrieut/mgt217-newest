@@ -3,11 +3,11 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="contacts_grid_data_source" xsi:type="string">Webspeaks\ProductsGrid\Model\ResourceModel\Contact\Grid\Collection</item>
+                <item name="contacts_grid_data_source" xsi:type="string">MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
-    <type name="Webspeaks\ProductsGrid\Model\ResourceModel\Contact\Grid\Collection">
+    <type name="MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\Grid\Collection">
         <arguments>
             <argument name="mainTable" xsi:type="string">catalogml_produk</argument>
             <argument name="eventPrefix" xsi:type="string">webspeaks_contact_grid_collection</argument>
@@ -17,7 +17,7 @@
     </type>
     <virtualType name="ContactGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>
-            <argument name="collection" xsi:type="object" shared="false">Webspeaks\ProductsGrid\Model\ResourceModel\Contact\Collection</argument>
+            <argument name="collection" xsi:type="object" shared="false">MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\Collection</argument>
             <argument name="filterPool" xsi:type="object" shared="false">ContactGrrdFilterPool</argument>
         </arguments>
     </virtualType>

@@ -1,5 +1,5 @@
 <?php
-namespace Webspeaks\ProductsGrid\Setup;
+namespace MuliaLestari\ProductsGrid\Setup;
 
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
