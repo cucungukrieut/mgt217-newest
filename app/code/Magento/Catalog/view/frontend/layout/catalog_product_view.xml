@@ -9,6 +9,7 @@
     <head>
         <css src="mage/gallery/gallery.css"/>
     </head>
+    <!-- update mean include -->
     <update handle="catalog_product_opengraph" />
     <update handle="page_calendar"/>
     <body>

@@ -1,7 +1,7 @@
 <?php
-namespace MuliaLestari\ProductsGrid\Block\Adminhtml\MasterProduct\Edit;
+namespace Webspeaks\ProductsGrid\Block\Adminhtml\Contact\Edit\Tab;
 
-class Main extends \Magento\Backend\Block\Widget\Form\Generic
+class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magento\Backend\Block\Widget\Tab\TabInterface
 {
     /**
      * @var \Magento\Store\Model\System\Store
@@ -9,10 +9,9 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic
     protected $store;
 
     /**
-    * @var \MuliaLestari\ProductsGrid\Helper\Data $helper
+    * @var \Webspeaks\ProductsGrid\Helper\Data $helper
     */
-    //protected $helper;
-
+    protected $helper;
 
     /**
      * @param \Magento\Backend\Block\Template\Context $context
@@ -24,15 +23,12 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
-        //\MuliaLestari\ProductsGrid\Helper\Data $helper,
-        \Magento\Store\Model\System\Store $store,
+        \Webspeaks\ProductsGrid\Helper\Data $helper,
         array $data = []
     ) {
-        //$this->helper = $helper;
-        $this->store = $store;
+        $this->helper = $helper;
         parent::__construct($context, $registry, $formFactory, $data);
     }
-
 
     /**
      * Prepare form
@@ -42,25 +38,18 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic
      */
     protected function _prepareForm()
     {
-        /* @var $model \MuliaLestari\ProductsGrid\Model\MasterProduct */
-        $model = $this->_coreRegistry->registry('produk_master');
+        /* @var $model \Webspeaks\ProductsGrid\Model\Contact */
+        $model = $this->_coreRegistry->registry('ws_contact');
 
         /** @var \Magento\Framework\Data\Form $form */
         $form = $this->_formFactory->create();
 
-        $form->setHtmlIdPrefix('produk_');
+        $form->setHtmlIdPrefix('contact_');
 
-        $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Informasi Master Product')]);
+        $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Informasi Produk')]);
 
-        // FIELD FORM ISIAN DATA PRODUK
         if ($model->getId()) {
-            $fieldset->addField(
-                'produk_id',
-                'hidden',
-                [
-                    'nama' => 'produk_id'
-                ]
-            );
+            $fieldset->addField('produk_id', 'hidden', ['name' => 'produk_id']);
         }
 
         $fieldset->addField(
@@ -119,7 +108,7 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic
                 'title' => __('Active'),
                 'name' => 'isactive',
                 'required' => true,
-                'options' => ['1' => __('Active'), '0' => __('InActive')]
+                'options' => ['0' => __('InActive'), '1' => __('Active')]
             ]
         );
 
@@ -213,12 +202,46 @@ class Main extends \Magento\Backend\Block\Widget\Form\Generic
         );
 
         $form->setValues($model->getData());
-        $form->setUseContainer(true);
         $this->setForm($form);
 
         return parent::_prepareForm();
     }
 
+    /**
+     * Prepare label for tab
+     *
+     * @return \Magento\Framework\Phrase
+     */
+    public function getTabLabel()
+    {
+        return __('Produk');
+    }
+
+    /**
+     * Prepare title for tab
+     *
+     * @return \Magento\Framework\Phrase
+     */
+    public function getTabTitle()
+    {
+        return __('Produk');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function canShowTab()
+    {
+        return true;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isHidden()
+    {
+        return false;
+    }
 
     /**
      * Check permission for passed action

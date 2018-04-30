@@ -1,6 +1,6 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\ProdukMaster;
+namespace Webspeaks\ProductsGrid\Controller\Adminhtml\Contacts;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -14,7 +14,7 @@ class Save extends \Magento\Backend\App\Action
     protected $_jsHelper;
 
     /**
-     * @var \MuliaLestari\ProductsGrid\Model\ResourceModel\MasterProduct\CollectionFactory
+     * @var \Webspeaks\ProductsGrid\Model\ResourceModel\Contact\CollectionFactory
      */
     protected $_contactCollectionFactory;
 
@@ -25,7 +25,7 @@ class Save extends \Magento\Backend\App\Action
     public function __construct(
         Context $context,
         \Magento\Backend\Helper\Js $jsHelper,
-        \MuliaLestari\ProductsGrid\Model\ResourceModel\MasterProduct\CollectionFactory $contactCollectionFactory
+        \Webspeaks\ProductsGrid\Model\ResourceModel\Contact\CollectionFactory $contactCollectionFactory
     ) {
         $this->_jsHelper = $jsHelper;
         $this->_contactCollectionFactory = $contactCollectionFactory;
@@ -52,10 +52,10 @@ class Save extends \Magento\Backend\App\Action
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
-            /** @var \MuliaLestari\ProductsGrid\Model\MasterProduct $model */
-            $model = $this->_objectManager->create('MuliaLestari\ProductsGrid\Model\MasterProduct');
-            //temporary null id
-            //so not save ok
+
+            /** @var \Webspeaks\ProductsGrid\Model\Contact $model */
+            $model = $this->_objectManager->create('Webspeaks\ProductsGrid\Model\Contact');
+
             $id = $this->getRequest()->getParam('produk_id');
             if ($id) {
                 $model->load($id);
@@ -63,35 +63,30 @@ class Save extends \Magento\Backend\App\Action
 
             $model->setData($data);
 
-            /**
-            $this->_eventManager->dispatch(
-                'produk_master_prepare_save',
-                ['masterproduk' => $model, 'request' => $this->getRequest()]
-            );*/
-
             try {
                 $model->save();
+                //temporary unavailable
                 //$this->saveProducts($model, $data);
 
-                $this->messageManager->addSuccessMessage(__('Anda telah menyimpan produk ini.'));
+                $this->messageManager->addSuccess(__('Anda telah menyimpan produk ini.'));
+
                 $this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
+
                 if ($this->getRequest()->getParam('back')) {
                     return $resultRedirect->setPath('*/*/edit', ['produk_id' => $model->getId(), '_current' => true]);
                 }
                 return $resultRedirect->setPath('*/*/');
             } catch (\Magento\Framework\Exception\LocalizedException $e) {
-                $this->messageManager->addErrorMessage($e->getMessage());
+                $this->messageManager->addError($e->getMessage());
             } catch (\RuntimeException $e) {
-                $this->messageManager->addErrorMessage($e->getMessage());
+                $this->messageManager->addError($e->getMessage());
             } catch (\Exception $e) {
-                $this->messageManager->addExceptionMessage($e->getMessage(), __('Ada yang salah ketika menyimpan produk.'));
+                $this->messageManager->addException($e, __('Terjadi kesalahan saat menyimpan produk.'));
             }
 
-            // redirect back to halaman edit
             $this->_getSession()->setFormData($data);
             return $resultRedirect->setPath('*/*/edit', ['produk_id' => $this->getRequest()->getParam('produk_id')]);
         }
         return $resultRedirect->setPath('*/*/');
     }
-
 }

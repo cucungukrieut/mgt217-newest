@@ -2,18 +2,17 @@
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="context" xsi:type="configurableObject">
         <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\Context</argument>
-        <argument name="namespace" xsi:type="string">produkmaster_listing</argument>
+        <argument name="namespace" xsi:type="string">ws_contacts_listing</argument>
         <!-- this should be same as the file name or uicomponentname -->
     </argument>
-
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">produkmaster_listing.produk_grid_data_source</item>
+            <item name="provider" xsi:type="string">ws_contacts_listing.contacts_grid_data_source</item>
              <!-- the format here is uicomponentname.datasourcename -->
-            <item name="deps" xsi:type="string">produkmaster_listing.produk_grid_data_source</item>
+            <item name="deps" xsi:type="string">ws_contacts_listing.contacts_grid_data_source</item>
             <!-- the format here is uicomponentname.datasourcename -->
         </item>
-        <item name="spinner" xsi:type="string">produk_grid_columns</item>
+        <item name="spinner" xsi:type="string">contacts_grid_columns</item>
         <!-- the format here is columns name defined below -->
         <item name="buttons" xsi:type="array">
             <!-- here we can add buttons -->
@@ -25,13 +24,12 @@
             </item>
         </item>
     </argument>
-
-    <dataSource name="produk_grid_data_source">
+    <dataSource name="contacts_grid_data_source">
         <!-- this is data source name, this is used at many places -->
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">ContactGridDataProvider</argument>
             <!-- <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument> -->
-            <argument name="name" xsi:type="string">produk_grid_data_source</argument>
+            <argument name="name" xsi:type="string">contacts_grid_data_source</argument>
             <!-- the same data source name as above -->
             <argument name="primaryFieldName" xsi:type="string">produk_id</argument>
             <!-- our model's primary key -->
@@ -51,6 +49,7 @@
     </dataSource>
 
     <container name="listing_top">
+
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="template" xsi:type="string">ui/grid/toolbar</item>
@@ -62,7 +61,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="storageConfig" xsi:type="array">
-                        <item name="namespace" xsi:type="string">produkmaster_listing</item>
+                        <item name="namespace" xsi:type="string">ws_contacts_listing</item>
                     </item>
                 </item>
             </argument>
@@ -72,7 +71,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="columnsData" xsi:type="array">
-                        <item name="provider" xsi:type="string">produkmaster_listing.produkmaster_listing.produk_grid_columns</item>
+                        <item name="provider" xsi:type="string">ws_contacts_listing.ws_contacts_listing.contacts_grid_columns</item>
                     </item>
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/controls/columns</item>
                     <item name="displayArea" xsi:type="string">dataGridActions</item>
@@ -83,10 +82,10 @@
         <filterSearch name="fulltext">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="provider" xsi:type="string">produkmaster_listing.produk_grid_data_source</item>
-                    <item name="chipsProvider" xsi:type="string">produkmaster_listing.produkmaster_listing.listing_top.listing_filters_chips</item>
+                    <item name="provider" xsi:type="string">ws_contacts_listing.contacts_grid_data_source</item>
+                    <item name="chipsProvider" xsi:type="string">ws_contacts_listing.ws_contacts_listing.listing_top.listing_filters_chips</item>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">produkmaster_listing.produkmaster_listing.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">ws_contacts_listing.ws_contacts_listing.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.search</item>
                     </item>
                 </item>
@@ -96,15 +95,15 @@
         <filters name="listing_filters">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="columnsProvider" xsi:type="string">produkmaster_listing.produkmaster_listing.produk_grid_columns</item>
+                    <item name="columnsProvider" xsi:type="string">ws_contacts_listing.ws_contacts_listing.contacts_grid_columns</item>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">produkmaster_listing.produkmaster_listing.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">ws_contacts_listing.ws_contacts_listing.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.filters</item>
                     </item>
                     <item name="childDefaults" xsi:type="array">
-                        <item name="provider" xsi:type="string">produkmaster_listing.produkmaster_listing.listing_top.listing_filters</item>
+                        <item name="provider" xsi:type="string">ws_contacts_listing.ws_contacts_listing.listing_top.listing_filters</item>
                         <item name="imports" xsi:type="array">
-                            <item name="visible" xsi:type="string">produkmaster_listing.produkmaster_listing.produk_grid_columns.${ $.index }:visible</item>
+                            <item name="visible" xsi:type="string">ws_contacts_listing.ws_contacts_listing.contacts_grid_columns.${ $.index }:visible</item>
                         </item>
                     </item>
                 </item>
@@ -114,7 +113,7 @@
         <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">produkmaster_listing.produkmaster_listing.produk_grid_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">ws_contacts_listing.ws_contacts_listing.contacts_grid_columns.ids</item>
                     <item name="indexField" xsi:type="string">produk_id</item>
                 </item>
             </argument>
@@ -122,11 +121,11 @@
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">delete</item>
-                        <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="wsproductsgrid/produkmaster/massDelete"/>
+                        <item name="label" xsi:type="string" translate="true">Hapus</item>
+                        <item name="url" xsi:type="url" path="wsproductsgrid/*/massDelete"/>
                         <item name="confirm" xsi:type="array">
-                            <item name="title" xsi:type="string" translate="true">Hapus Produk</item>
-                            <item name="message" xsi:type="string" translate="true">Anda yakin ingin menghapus data produk yang dipilih?</item>
+                            <item name="title" xsi:type="string" translate="true">Hapus Data</item>
+                            <item name="message" xsi:type="string" translate="true">Anda yakin ingin menghapus data yang dipilih?</item>
                         </item>
                     </item>
                 </argument>
@@ -137,19 +136,19 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="storageConfig" xsi:type="array">
-                        <item name="provider" xsi:type="string">produkmaster_listing.produkmaster_listing.listing_top.bookmarks</item>
+                        <item name="provider" xsi:type="string">ws_contacts_listing.ws_contacts_listing.listing_top.bookmarks</item>
                         <item name="namespace" xsi:type="string">current.paging</item>
                     </item>
-                    <item name="selectProvider" xsi:type="string">produkmaster_listing.produkmaster_listing.produk_grid_columns.ids</item>
+                    <item name="selectProvider" xsi:type="string">ws_contacts_listing.ws_contacts_listing.contacts_grid_columns.ids</item>
                 </item>
             </argument>
         </paging>
 
     </container>
 
-    <columns name="produk_grid_columns">
-
+    <columns name="contacts_grid_columns">
        <!-- this is columns section name, used above in spinner -->
+        <!-- this is columns section name, used above in spinner -->
         <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -165,7 +164,7 @@
         <column name="produk_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
+                    <item name="filte r" xsi:type="string">text</item>
                     <item name="sorting" xsi:type="string">asc</item>
                     <item name="sortOrder" xsi:type="number">1</item>
                     <item name="label" xsi:type="string" translate="true">ID</item>
@@ -203,7 +202,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
-                    <item name="sorting" xsi:type="string">asc</item>
+                    <!--item name="sorting" xsi:type="string">asc</item-->
                     <item name="sortOrder" xsi:type="number">4</item>
                     <item name="label" xsi:type="string" translate="true">Kode</item>
                 </item>
@@ -308,13 +307,10 @@
                 </item>
             </argument>
         </column>
-
-        <!-- End Column Grid -->
-        <actionsColumn name="actions" class="MuliaLestari\ProductsGrid\Ui\Component\Listing\Column\RowActions">
+        <actionsColumn name="actions" class="Webspeaks\ProductsGrid\Ui\Component\Listing\Column\ContactsActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
-                    <item name="sortOrder" xsi:type="number">15</item>
                     <item name="resizeDefaultWidth" xsi:type="string">107</item>
                     <item name="indexField" xsi:type="string">produk_id</item>
                 </item>
@@ -326,8 +322,8 @@
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="component" xsi:type="string">Magento_Ui/js/grid/sticky/sticky</item>
-                <item name="toolbarProvider" xsi:type="string">produkmaster_listing.produkmaster_listing.listing_top</item>
-                <item name="listingProvider" xsi:type="string">produkmaster_listing.produkmaster_listing.produk_grid_columns</item>
+                <item name="toolbarProvider" xsi:type="string">ws_contacts_listing.ws_contacts_listing.listing_top</item>
+                <item name="listingProvider" xsi:type="string">ws_contacts_listing.ws_contacts_listing.contacts_grid_columns</item>
             </item>
         </argument>
     </container>

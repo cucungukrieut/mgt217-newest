@@ -1,6 +1,6 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Block\Adminhtml\MasterProduct;
+namespace Webspeaks\ProductsGrid\Block\Adminhtml\Contact;
 
 class Edit extends \Magento\Backend\Block\Widget\Form\Container
 {
@@ -32,12 +32,12 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
     protected function _construct()
     {
         $this->_objectId = 'produk_id';
-        $this->_blockGroup = 'MuliaLestari_ProductsGrid';
-        $this->_controller = 'adminhtml_masterproduct'; //default adminhtml_contact
+        $this->_blockGroup = 'Webspeaks_ProductsGrid';
+        $this->_controller = 'adminhtml_contact';
 
         parent::_construct();
 
-        $this->buttonList->update('save', 'label', __('Simpan Product'));
+        $this->buttonList->update('save', 'label', __('Simpan Produk'));
         $this->buttonList->add(
             'saveandcontinue',
             [
@@ -45,27 +45,14 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
                 'class' => 'save',
                 'data_attribute' => [
                     'mage-init' => [
-                        'button' => [
-                            'event' => 'saveAndContinueEdit',
-                            'target' => '#edit_form'
-                        ],
+                        'button' => ['event' => 'saveAndContinueEdit', 'target' => '#edit_form'],
                     ],
                 ]
             ],
             -100
         );
 
-        $this->buttonList->update('delete', 'label', __('Hapus Product'));
-    }
-
-
-    public function getHeaderText()
-    {
-        if ($this->_coreRegistry->registry('produk_master')->getId()) {
-            return __("Edit Product '%1'", $this->escapeHtml($this->_coreRegistry->registry('produk_master')->getTitle()));
-        } else {
-            return __('New Product');
-        }
+        $this->buttonList->update('delete', 'label', __('Hapus Produk'));
     }
 
     /**
