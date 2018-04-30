@@ -79,7 +79,8 @@
             </argument>
         </container>
 
-        <filterSearch name="fulltext">
+        <!-- Untuk seearch field -->
+        <!--filterSearch name="fulltext">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="provider" xsi:type="string">ws_contacts_listing.contacts_grid_data_source</item>
@@ -90,7 +91,7 @@
                     </item>
                 </item>
             </argument>
-        </filterSearch>
+        </filterSearch-->
 
         <filters name="listing_filters">
             <argument name="data" xsi:type="array">
@@ -110,6 +111,7 @@
             </argument>
         </filters>
 
+        <!-- Sleection action ex : delete selected data -->
         <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -148,7 +150,6 @@
 
     <columns name="contacts_grid_columns">
        <!-- this is columns section name, used above in spinner -->
-        <!-- this is columns section name, used above in spinner -->
         <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -223,7 +224,11 @@
         <column name="isactive">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">number</item>
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="sortable" xsi:type="boolean">true</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cell/html</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
                     <!--item name="sorting" xsi:type="string">asc</item-->
                     <item name="sortOrder" xsi:type="number">6</item>
                     <item name="label" xsi:type="string" translate="true">Active</item>

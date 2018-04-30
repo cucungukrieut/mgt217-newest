@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="productsgrid" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Master Produk</label>
+            <tab>contact_tabs</tab>
+            <resource>MuliaLestari_ProductsGrid::productsgrid</resource>
+            <group id="item_options" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <comment>
+                    <![CDATA[Settingan ini hanya untuk module productsgrid. ]]>
+                </comment>
+                <label>Master Produk Edit</label>
+                <field id="created" translate="label" type="date" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Created</label>
+                    <comment>Kapan data produk di buat.</comment>
+                </field>
+                <field id="updated" translate="label" type="date" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Updated</label>
+                    <comment>Kapan data produk di update.</comment>
+                </field>
+                <field id="kode" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Kode produk</label>
+                    <validate>validate-number</validate>
+                </field>
+                <field id="nama" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Out-of-Stock Threshold</label>
+                    <comment>Nama dari produk.</comment>
+                </field>
+                <field id="isactive" translate="label" type="select" sortOrder="6" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Produk aktif atau tidak</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="qty_bruto" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Quantity Bruto</label>
+                    <comment>Quantity yang ti jual Bruto.</comment>
+                </field>
+                <field id="qty_netto" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Quantity Netto</label>
+                    <comment>Quantity netto dari produk.</comment>
+                </field>
+                <field id="kategori" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Kategori Produk</label>
+                    <comment>Ktegori dari master produk.</comment>
+                </field>
+                <field id="harga" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Harga</label>
+                    <comment>Harga satu roll produk.</comment>
+                </field>
+                <field id="lebar" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Lebar</label>
+                    <comment>Lebar produk dalam satuan inch.</comment>
+                </field>
+                <field id="gramasi" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Gramasi</label>
+                    <comment>Gramasai warna produk.</comment>
+                </field>
+                <field id="lot" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Lot</label>
+                    <comment>Kombinasi nomor bahan baku yang dipakai.</comment>
+                </field>
+                <field id="img_url" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>URL Gambar</label>
+                    <comment>Url atau path untuk foto produk.</comment>
+                </field>
+                <field id="kategori_warna" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Kategori Warna</label>
+                    <comment>Kategori unutk warna produk.</comment>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

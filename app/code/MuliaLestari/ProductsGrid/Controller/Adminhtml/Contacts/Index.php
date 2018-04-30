@@ -33,6 +33,8 @@ class Index extends Action {
         $resultPage = $this->resultPageFactory->create();
         $resultPage->addBreadcrumb(__('Master Produk'), __('Master Produk'));
         $resultPage->getConfig()->getTitle()->prepend('Master Produk');
+        //get cache tag.....
+        $cachetagsmple = $resultPage->getLayout()->getCacheTags();
         return $resultPage;
     }
 
