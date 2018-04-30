@@ -2,10 +2,11 @@
 
 namespace MuliaLestari\ProductsGrid\Block\Adminhtml;
 
+use \Magento\Backend\Block\Widget\Grid\Container;
 /**
  * Adminhtml contact content block
  */
-class Contact extends \Magento\Backend\Block\Widget\Grid\Container
+class Contact extends Container
 {
     /**
      * Block constructor

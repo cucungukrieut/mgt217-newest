@@ -5,7 +5,7 @@ namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
 
-class Delete extends \Magento\Backend\App\Action
+class Delete extends Action
 {
 
     /**

@@ -2,9 +2,16 @@
 
 namespace MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\Grid;
 
-use Magento\Framework\Api\Search\SearchResultInterface;
-use Magento\Framework\Search\AggregationInterface;
 
+use Magento\Framework\Api\Search\SearchResultInterface;
+use \Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Search\AggregationInterface;
+use \Magento\Framework\Data\Collection\EntityFactoryInterface;
+use \Magento\Framework\Data\Collection\Db\FetchStrategyInterface;
+use \Magento\Framework\Event\ManagerInterface;
+use \Magento\Store\Model\StoreManagerInterface;
+use \Psr\Log\LoggerInterface;
+use \Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 /**
  * Class Collection
  * Collection for displaying grid of sales documents
@@ -31,19 +38,18 @@ class Collection extends \MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\
      *
      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
-    public function __construct(
-        \Magento\Framework\Data\Collection\EntityFactoryInterface $entityFactory,
-        \Psr\Log\LoggerInterface $logger,
-        \Magento\Framework\Data\Collection\Db\FetchStrategyInterface $fetchStrategy,
-        \Magento\Framework\Event\ManagerInterface $eventManager,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
+    public function __construct(EntityFactoryInterface $entityFactory,
+        LoggerInterface $logger,
+        FetchStrategyInterface $fetchStrategy,
+        ManagerInterface $eventManager,
+        StoreManagerInterface $storeManager,
         $mainTable,
         $eventPrefix,
         $eventObject,
         $resourceModel,
         $model = 'Magento\Framework\View\Element\UiComponent\DataProvider\Document',
         $connection = null,
-        \Magento\Framework\Model\ResourceModel\Db\AbstractDb $resource = null
+        AbstractDb $resource = null
     ) {
         parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $connection, $resource);
         $this->_eventPrefix = $eventPrefix;
@@ -94,7 +100,7 @@ class Collection extends \MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\
      * @return $this
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
-    public function setSearchCriteria(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria = null)
+    public function setSearchCriteria(SearchCriteriaInterface $searchCriteria = null)
     {
         return $this;
     }

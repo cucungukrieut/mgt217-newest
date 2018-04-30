@@ -3,9 +3,10 @@
 namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
 
 use Magento\Backend\App\Action;
+use \Magento\Framework\View\Result\PageFactory;
+use \Magento\Framework\Registry;
 
-class Edit extends \Magento\Backend\App\Action
-{
+class Edit extends Action{
     /**
      * Core registry
      *
@@ -19,15 +20,11 @@ class Edit extends \Magento\Backend\App\Action
     protected $resultPageFactory;
 
     /**
-     * @param Action\Context $context
+     * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      * @param \Magento\Framework\Registry $registry
      */
-    public function __construct(
-        Action\Context $context,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory,
-        \Magento\Framework\Registry $registry
-    ) {
+    public function __construct(Action\Context $context,PageFactory $resultPageFactory,Registry $registry) {
         $this->resultPageFactory = $resultPageFactory;
         $this->_coreRegistry = $registry;
         parent::__construct($context);
@@ -38,7 +35,7 @@ class Edit extends \Magento\Backend\App\Action
      */
     /*protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Webspeaks_Contact::attachment_save');
+        return $this->_authorization->isAllowed('MuliaLestari_Contact::attachment_save');
     }*/
 
     /**
@@ -68,7 +65,7 @@ class Edit extends \Magento\Backend\App\Action
         if ($id) {
             $model->load($id);
             if (!$model->getId()) {
-                $this->messageManager->addError(__('This Product no longer exists.'));
+                $this->messageManager->addErrorMessage(__('Produk ini sudah tidak tersedia.'));
                 /** \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
                 $resultRedirect = $this->resultRedirectFactory->create();
 
@@ -89,9 +86,8 @@ class Edit extends \Magento\Backend\App\Action
             $id ? __('Edit Produk') : __('Produk Baru'),
             $id ? __('Edit Produk') : __('Produk Baru')
         );
-        $resultPage->getConfig()->getTitle()->prepend(__('Products'));
-        $resultPage->getConfig()->getTitle()
-            ->prepend($model->getId() ? $model->getTitle() : __('Produk Baru'));
+        $resultPage->getConfig()->getTitle()->prepend(__('List Produk Baru'));
+        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? $model->getTitle() : __('Produk Baru'));
 
         return $resultPage;
     }

@@ -7,12 +7,12 @@
 namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
 
 use Magento\Framework\Controller\ResultFactory;
-use Magento\Backend\App\Action\Context;
+use Magento\Backend\App\Action;
 use Magento\Ui\Component\MassAction\Filter;
 use MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\CollectionFactory;
 use Magento\Framework\App\ResponseInterface;
 
-class MassDelete extends \Magento\Backend\App\Action
+class MassDelete extends Action
 {
     /**
      * @var Filter
@@ -25,12 +25,11 @@ class MassDelete extends \Magento\Backend\App\Action
     protected $collectionFactory;
 
     /**
-     * @param Context $context
-     * @param Filter $filter
-     * @param CollectionFactory $collectionFactory
+     * @param \Magento\Backend\App\Action\Context $context
+     * @param \Magento\Ui\Component\MassAction\Filter $filter
+     * @param \MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\CollectionFactory $collectionFactory
      */
-    public function __construct(Context $context, Filter $filter, CollectionFactory $collectionFactory)
-    {
+    public function __construct(Action\Context $context, Filter $filter, CollectionFactory $collectionFactory) {
         $this->filter = $filter;
         $this->collectionFactory = $collectionFactory;
         parent::__construct($context);

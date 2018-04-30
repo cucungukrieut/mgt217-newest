@@ -1,7 +1,9 @@
 <?php
 namespace MuliaLestari\ProductsGrid\Model\ResourceModel\Contact;
 
-class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
+use \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+
+class Collection extends AbstractCollection
 {
     /**
      * @var string

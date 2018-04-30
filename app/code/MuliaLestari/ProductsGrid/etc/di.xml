@@ -10,9 +10,9 @@
     <type name="MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\Grid\Collection">
         <arguments>
             <argument name="mainTable" xsi:type="string">catalogml_produk</argument>
-            <argument name="eventPrefix" xsi:type="string">webspeaks_contact_grid_collection</argument>
-            <argument name="eventObject" xsi:type="string">webspeaks_contact_grid_collection</argument>
-            <argument name="resourceModel" xsi:type="string">Webspeaks\ProductsGrid\Model\ResourceModel\Contact</argument>
+            <argument name="eventPrefix" xsi:type="string">mulialestari_contact_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">mulialestari_contact_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">MuliaLestari\ProductsGrid\Model\ResourceModel\Contact</argument>
         </arguments>
     </type>
     <virtualType name="ContactGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">

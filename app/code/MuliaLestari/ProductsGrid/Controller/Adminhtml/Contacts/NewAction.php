@@ -2,9 +2,11 @@
 
 namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
 
+use \Magento\Backend\App\Action;
+use \Magento\Backend\Model\View\Result\ForwardFactory;
 /**
  * Class NewAction for edit action
- * @package Webspeaks\ProductsGrid\Controller\Adminhtml\Contacts
+ * @package MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts
  */
 class NewAction extends \Magento\Backend\App\Action
 {
@@ -17,10 +19,7 @@ class NewAction extends \Magento\Backend\App\Action
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
      */
-    public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
-    ) {
+    public function __construct(Action\Context $context, ForwardFactory $resultForwardFactory) {
         $this->resultForwardFactory = $resultForwardFactory;
         parent::__construct($context);
     }
@@ -31,7 +30,7 @@ class NewAction extends \Magento\Backend\App\Action
     protected function _isAllowed()
     {
         return true;
-        // return $this->_authorization->isAllowed('MuliaLestari_Contact::attachment_save');
+        // return $this->_authorization->isAllowed('MuliaLestari_ProductsGrid::attachment_save');
     }
 
     /**

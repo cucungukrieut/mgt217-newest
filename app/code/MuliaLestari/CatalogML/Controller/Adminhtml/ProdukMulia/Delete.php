@@ -18,7 +18,7 @@ class Delete extends \Magento\Backend\App\Action
      */
     /*protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Magento_CatalogML::atachment_delete');
+        return $this->_authorization->isAllowed('MuliaLestari_CatalogML::atachment_delete');
     }*/
 
     /**

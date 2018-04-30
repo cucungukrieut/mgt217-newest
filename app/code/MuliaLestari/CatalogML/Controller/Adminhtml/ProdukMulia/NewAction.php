@@ -3,11 +3,15 @@
 namespace MuliaLestari\CatalogML\Controller\Adminhtml\ProdukMulia;
 
 
+use \Magento\Backend\App\Action;
+use \Magento\Backend\App\Action\Context;
+use \Magento\Backend\Model\View\Result\ForardFactory;
+
 /**
  * Class NewAction
  * @package MuliaLestari\CatalogML\Controller\Adminhtml\ProdukMulia
  */
-class NewAction extends \Magento\Backend\App\Action
+class NewAction extends Action
 {
     /**
      * @var \Magento\Backend\Model\View\Result\Forward
@@ -18,9 +22,7 @@ class NewAction extends \Magento\Backend\App\Action
      * @param \Magento\Backend\App\Action\Context $context
      * @param \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
      */
-    public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
+    public function __construct(Context $context, ForwardFactory $resultForwardFactory
     ) {
         $this->resultForwardFactory = $resultForwardFactory;
         parent::__construct($context);
