@@ -1,5 +1,5 @@
 <?php
-namespace MuliaLestari\ProductsGrid\Setup;
+namespace Webspeaks\ProductsGrid\Setup;
 
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -15,7 +15,7 @@ class InstallSchema implements InstallSchemaInterface
      * @param ModuleContextInterface $context
      * @return void
      */
-    public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
+   public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
         $installer = $setup;
 

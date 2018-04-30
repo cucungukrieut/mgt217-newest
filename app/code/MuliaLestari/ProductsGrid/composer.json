@@ -1,10 +1,13 @@
 {
-    "name": "mulialestari/productsgrid-masterproduk",
+    "name": "webspeaks/productsgrid-magento2",
+    "description": "Product grid example for Magento 2",
     "type": "magento2-module",
     "version": "0.0.1",
     "authors": [
         {
-            "name": "MuliaLestari",
+            "name": "Webspeaks",
+            "email": "arvind@webspeaks.in",
+            "homepage": "http://www.webspeaks.in"
         }
     ],
     "license": [
