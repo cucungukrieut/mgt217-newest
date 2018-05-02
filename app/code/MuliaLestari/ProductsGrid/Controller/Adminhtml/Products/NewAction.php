@@ -1,12 +1,12 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
+namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Products;
 
 use \Magento\Backend\App\Action;
 use \Magento\Backend\Model\View\Result\ForwardFactory;
 /**
  * Class NewAction for edit action
- * @package MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts
+ * @package MuliaLestari\ProductsGrid\Controller\Adminhtml\Products
  */
 class NewAction extends Action
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Contact\Edit;
+namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Product\Edit;
 
 
 use \Magento\Backend\Block\Widget\Form\Generic;

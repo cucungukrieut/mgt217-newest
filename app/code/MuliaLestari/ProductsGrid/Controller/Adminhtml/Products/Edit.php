@@ -1,6 +1,6 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
+namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Products;
 
 use Magento\Backend\App\Action;
 use \Magento\Framework\View\Result\PageFactory;
@@ -54,7 +54,7 @@ class Edit extends Action
     }
 
     /**
-     * Edit Contacts
+     * Edit Products
      *
      * @return \Magento\Backend\Model\View\Result\Page|\Magento\Backend\Model\View\Result\Redirect
      * @SuppressWarnings(PHPMD.NPathComplexity)
@@ -62,7 +62,7 @@ class Edit extends Action
     public function execute()
     {
         $id = $this->getRequest()->getParam('produk_id');
-        $model = $this->_objectManager->create('MuliaLestari\ProductsGrid\Model\Contact');
+        $model = $this->_objectManager->create('MuliaLestari\ProductsGrid\Model\Product');
 
         if ($id) {
             $model->load($id);
@@ -80,7 +80,7 @@ class Edit extends Action
             $model->setData($data);
         }
 
-        $this->_coreRegistry->register('ws_contact', $model);
+        $this->_coreRegistry->register('ws_product', $model);
 
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->_initAction();

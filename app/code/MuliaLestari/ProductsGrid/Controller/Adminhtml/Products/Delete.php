@@ -1,6 +1,6 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
+namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Products;
 
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
@@ -28,7 +28,7 @@ class Delete extends Action
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($id) {
             try {
-                $model = $this->_objectManager->create('MuliaLestari\ProductsGrid\Model\Contact');
+                $model = $this->_objectManager->create('MuliaLestari\ProductsGrid\Model\Product');
                 $model->load($id);
                 $model->delete();
                 $this->messageManager->addSuccessMessage(__('Produk telah di hapus.'));

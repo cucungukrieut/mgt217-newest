@@ -1,6 +1,6 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
+namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Products;
 
 use Magento\Backend\App\Action;
 use Magento\Framework\View\Result\PageFactory;
@@ -31,6 +31,9 @@ class Index extends Action
     {
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
+        $resultPage->getConfig()->getTitle()->prepend(__('Master Product'));
+        $resultPage->addBreadcrumb(__('Master Product'), __('Master Product'));
+        //$resultPage->getConfig()->
         return $resultPage;
     }
 

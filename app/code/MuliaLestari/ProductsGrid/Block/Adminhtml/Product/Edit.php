@@ -1,6 +1,6 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Contact;
+namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Product;
 
 use \Magento\Backend\Block\Widget\Form\Container;
 use \Magento\Backend\Block\Widget\Context;
@@ -33,7 +33,7 @@ class Edit extends Container
     {
         $this->_objectId = 'produk_id';
         $this->_blockGroup = 'MuliaLestari_ProductsGrid';
-        $this->_controller = 'adminhtml_contact';
+        $this->_controller = 'adminhtml_product';
 
         parent::_construct();
 
@@ -74,7 +74,7 @@ class Edit extends Container
      */
     protected function _getSaveAndContinueUrl()
     {
-        return $this->getUrl('wsproductsgrid/*/save', ['_current' => true, 'back' => 'edit', 'active_tab' => '']);
+        return $this->getUrl('masterproduct/*/save', ['_current' => true, 'back' => 'edit', 'active_tab' => '']);
     }
 
 }

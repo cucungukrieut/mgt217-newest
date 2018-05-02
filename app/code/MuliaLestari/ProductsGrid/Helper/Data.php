@@ -21,8 +21,9 @@ class Data extends AbstractHelper
     protected $storeManager;
 
     /**
-     * @param \Magento\Framework\App\Helper\Context   $context
+     * @param \Magento\Framework\App\Helper\Context $context
      * @param \Magento\Backend\Model\UrlInterface $backendUrl
+     * @param StoreManagerInterface $storeManager
      */
     public function __construct(Context $context,UrlInterface $backendUrl,StoreManagerInterface $storeManager) {
         parent::__construct($context);
@@ -36,6 +37,6 @@ class Data extends AbstractHelper
      */
     public function getProductsGridUrl()
     {
-        return $this->_backendUrl->getUrl('wsproductsgrid/contacts/products', ['_current' => true]);
+        return $this->_backendUrl->getUrl('masterproduct/products/products', ['_current' => true]);
     }
 }

@@ -7,11 +7,11 @@ use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 use Magento\Framework\UrlInterface;
 
-class ContactsActions extends Column
+class ProductsActions extends Column
 {
     /** Url path */
-    const CONTACTS_URL_PATH_EDIT = 'wsproductsgrid/contacts/edit';
-    const CONTACTS_URL_PATH_DELETE = 'wsproductsgrid/contacts/delete';
+    const PRODUCTS_URL_PATH_EDIT = 'masterproduct/products/edit';
+    const PRODUCTS_URL_PATH_DELETE = 'masterproduct/products/delete';
 
     /** @var UrlInterface */
     protected $urlBuilder;
@@ -35,7 +35,7 @@ class ContactsActions extends Column
         UrlInterface $urlBuilder,
         array $components = [],
         array $data = [],
-        $editUrl = self::CONTACTS_URL_PATH_EDIT
+        $editUrl = self::PRODUCTS_URL_PATH_EDIT
     ) {
         $this->urlBuilder = $urlBuilder;
         $this->editUrl = $editUrl;
@@ -59,7 +59,7 @@ class ContactsActions extends Column
                         'label' => __('Edit')
                     ];
                     $item[$name]['delete'] = [
-                        'href' => $this->urlBuilder->getUrl(self::CONTACTS_URL_PATH_DELETE, ['produk_id' => $item['produk_id']]),
+                        'href' => $this->urlBuilder->getUrl(self::PRODUCTS_URL_PATH_DELETE, ['produk_id' => $item['produk_id']]),
                         'label' => __('Delete'),
                         'confirm' => [
                             'title' => __('Hapus "${ $.$data.nama }"'),

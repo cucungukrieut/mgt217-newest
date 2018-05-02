@@ -9,10 +9,10 @@ use \Magento\Framework\Model\AbstractModel;
 /**
  * ProductsGrid mysql resource
  */
-class Contact extends AbstractDb
+class Product extends AbstractDb
 {
 
-    const TBL_ATT_PRODUCT = 'webspeaks_product_attachment_rel';
+    const TBL_ATT_PRODUCT = 'mulialestari_product_attachment_rel';
 
     /**
      * @var \Magento\Framework\Stdlib\DateTime\DateTime

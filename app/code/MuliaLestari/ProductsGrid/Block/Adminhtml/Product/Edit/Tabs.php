@@ -1,6 +1,6 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Contact\Edit;
+namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Product\Edit;
 
 /**
  * Admin page left menu
@@ -13,7 +13,7 @@ class Tabs extends \Magento\Backend\Block\Widget\Tabs
     protected function _construct()
     {
         parent::_construct();
-        $this->setId('contact_tabs');
+        $this->setId('product_tabs');
         $this->setDestElementId('edit_form');
         $this->setTitle(__('Informasi Produk'));
     }

@@ -1,22 +1,22 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\Grid;
+namespace MuliaLestari\ProductsGrid\Model\ResourceModel\Product\Grid;
 
 use Magento\Framework\Api\Search\SearchResultInterface;
 use \Magento\Framework\Api\SearchCriteriaInterface;
-use Magento\Framework\Search\AggregationInterface;
+use \Magento\Framework\Search\AggregationInterface;
 use \Magento\Framework\Data\Collection\EntityFactoryInterface;
 use \Psr\Log\LoggerInterface;
 use \Magento\Framework\Data\Collection\Db\FetchStrategyInterface;
 use \Magento\Framework\Event\ManagerInterface;
 use \Magento\Store\Model\StoreManagerInterface;
-use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
+use \Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 /**
  * Class Collection
  * Collection for displaying grid of sales documents
  */
-class Collection extends \MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\Collection implements SearchResultInterface
+class Collection extends \MuliaLestari\ProductsGrid\Model\ResourceModel\Product\Collection implements SearchResultInterface
 {
     /**
      * @var AggregationInterface

@@ -5,7 +5,7 @@ namespace MuliaLestari\ProductsGrid\Model;
 use Magento\Framework\DataObject\IdentityInterface;
 use \Magento\Framework\Model\AbstractModel;
 
-class Contact extends AbstractModel implements IdentityInterface
+class Product extends AbstractModel implements IdentityInterface
 {
 
     /**
@@ -32,7 +32,7 @@ class Contact extends AbstractModel implements IdentityInterface
      */
     protected function _construct()
     {
-        $this->_init('MuliaLestari\ProductsGrid\Model\ResourceModel\Contact');
+        $this->_init('MuliaLestari\ProductsGrid\Model\ResourceModel\Product');
     }
 
     /**
@@ -45,9 +45,9 @@ class Contact extends AbstractModel implements IdentityInterface
         return [self::CACHE_TAG . '_' . $this->getId()];
     }
 
-    public function getProducts(\MuliaLestari\ProductsGrid\Model\Contact $object)
+    public function getProducts(\MuliaLestari\ProductsGrid\Model\Product $object)
     {
-        $tbl = $this->getResource()->getTable(\MuliaLestari\ProductsGrid\Model\ResourceModel\Contact::TBL_ATT_PRODUCT);
+        $tbl = $this->getResource()->getTable(\MuliaLestari\ProductsGrid\Model\ResourceModel\Product::TBL_ATT_PRODUCT);
         $select = $this->getResource()->getConnection()->select()->from(
             $tbl,
             ['product_id']

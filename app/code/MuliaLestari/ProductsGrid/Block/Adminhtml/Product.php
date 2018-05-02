@@ -1,12 +1,12 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Block\Adminhtml;
+namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Product;
 
 use \Magento\Backend\Block\Widget\Grid\Container;
 /**
- * Adminhtml contact content block
+ * Adminhtml Product content block
  */
-class Contact extends Container
+class Product extends Container
 {
     /**
      * Block constructor

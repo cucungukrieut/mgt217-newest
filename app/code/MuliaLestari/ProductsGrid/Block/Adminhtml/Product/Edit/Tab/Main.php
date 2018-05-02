@@ -1,5 +1,5 @@
 <?php
-namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Contact\Edit\Tab;
+namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Product\Edit\Tab;
 
 use Magento\Backend\Block\Widget\Form\Generic;
 use \Magento\Backend\Block\Widget\Tab\TabInterface;
@@ -46,13 +46,13 @@ class Main extends Generic implements TabInterface
      */
     protected function _prepareForm()
     {
-        /* @var $model \MuliaLestari\ProductsGrid\Model\Contact */
-        $model = $this->_coreRegistry->registry('ws_contact');
+        /* @var $model \MuliaLestari\ProductsGrid\Model\Product */
+        $model = $this->_coreRegistry->registry('ws_product');
 
         /** @var \Magento\Framework\Data\Form $form */
         $form = $this->_formFactory->create();
 
-        $form->setHtmlIdPrefix('contact_');
+        $form->setHtmlIdPrefix('product_');
 
         $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Informasi Produk')]);
 

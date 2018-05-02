@@ -1,11 +1,11 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
+namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Products;
 
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
 use \Magento\Backend\Helper\Js;
-use \MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\CollectionFactory;
+use \MuliaLestari\ProductsGrid\Model\ResourceModel\Product\CollectionFactory;
 use \Magento\Framework\Exception\LocalizedException;
 
 class Save extends Action
@@ -16,19 +16,19 @@ class Save extends Action
     protected $_jsHelper;
 
     /**
-     * @var \MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\CollectionFactory
+     * @var \MuliaLestari\ProductsGrid\Model\ResourceModel\Product\CollectionFactory
      */
-    protected $_contactCollectionFactory;
+    protected $_collectionFactory;
 
     /**
      * \Magento\Backend\Helper\Js $jsHelper
      * @param Action\Context $context
      * @param Js $jsHelper
-     * @param CollectionFactory $contactCollectionFactory
+     * @param CollectionFactory $collectionFactory
      */
-    public function __construct(Action\Context $context,Js $jsHelper,CollectionFactory $contactCollectionFactory) {
+    public function __construct(Action\Context $context,Js $jsHelper,CollectionFactory $collectionFactory) {
         $this->_jsHelper = $jsHelper;
-        $this->_contactCollectionFactory = $contactCollectionFactory;
+        $this->_collectionFactory = $collectionFactory;
         parent::__construct($context);
     }
 
@@ -53,8 +53,8 @@ class Save extends Action
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
 
-            /** @var \MuliaLestari\ProductsGrid\Model\Contact $model */
-            $model = $this->_objectManager->create('MuliaLestari\ProductsGrid\Model\Contact');
+            /** @var \MuliaLestari\ProductsGrid\Model\Product $model */
+            $model = $this->_objectManager->create('MuliaLestari\ProductsGrid\Model\Product');
 
             $id = $this->getRequest()->getParam('produk_id');
             if ($id) {

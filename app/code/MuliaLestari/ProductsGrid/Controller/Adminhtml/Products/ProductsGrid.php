@@ -1,12 +1,12 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
+namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Products;
 
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
 use \Magento\Framework\View\Result\LayoutFactory;
 
-class Products extends Action
+class ProductsGrid extends Action
 {
 
     /**
@@ -39,9 +39,10 @@ class Products extends Action
     public function execute()
     {
         $resultLayout = $this->_resultLayoutFactory->create();
-        $resultLayout->getLayout()->getBlock('wsproductsgrid.edit.tab.products')
-                     ->setInProducts($this->getRequest()->getPost('contact_products', null));
+        $resultLayout->getLayout()->getBlock('masterproduct.edit.tab.products')
+                     ->setInBanner($this->getRequest()->getPost('contact_products', null));
 
         return $resultLayout;
     }
+
 }

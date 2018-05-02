@@ -1,10 +1,16 @@
 <?php
 
-namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Contact\Edit\Tab;
+namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Product\Edit\Tab;
 
-use MuliaLestari\ProductsGrid\Model\ContactFactory;
+use MuliaLestari\ProductsGrid\Model\ProductFactory;
+use \Magento\Backend\Block\Widget\Grid\Extended;
+use \Magento\Backend\Block\Template\Context;
+use \Magento\Backend\Helper\Data;
+use \Magento\Framework\Registry;
+use \Magento\Framework\ObjectManagerInterface;
+use \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 
-class Products extends \Magento\Backend\Block\Widget\Grid\Extended
+class Products extends Extended
 {
     /**
      * @var \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory
@@ -12,11 +18,11 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
     protected $productCollectionFactory;
 
     /**
-     * Contact factory
+     * Product Factory
      *
-     * @var ContactFactory
+     * @var ProductFactory
      */
-    protected $contactFactory;
+    protected $productFactory;
 
     /**
      * @var  \Magento\Framework\Registry
@@ -30,20 +36,21 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Backend\Helper\Data $backendHelper
      * @param \Magento\Framework\Registry $registry
-     * @param ContactFactory $attachmentFactory
+     * @param \Magento\Framework\ObjectManagerInterface $objectManager
+     * @param ProductFactory $productFactory
      * @param \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory
      * @param array $data
+     * @internal param ContactFactory $attachmentFactory
      */
-    public function __construct(
-        \Magento\Backend\Block\Template\Context $context,
-        \Magento\Backend\Helper\Data $backendHelper,
-        \Magento\Framework\Registry $registry,
-        \Magento\Framework\ObjectManagerInterface $objectManager,
-        ContactFactory $contactFactory,
-        \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
+    public function __construct(Context $context,
+        Data $backendHelper,
+        Registry $registry,
+        ObjectManagerInterface $objectManager,
+        ProductFactory $productFactory,
+        CollectionFactory $productCollectionFactory,
         array $data = []
     ) {
-        $this->contactFactory = $contactFactory;
+        $this->productFactory = $productFactory;
         $this->productCollectionFactory = $productCollectionFactory;
         $this->_objectManager = $objectManager;
         $this->registry = $registry;
@@ -110,8 +117,8 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
      */
     protected function _prepareColumns()
     {
-        /* @var $model \MuliaLestari\ProductsGrid\Model\Contact */
-        $model = $this->_objectManager->get('\MuliaLestari\ProductsGrid\Model\Contact');
+        /* @var $model \MuliaLestari\ProductsGrid\Model\Product*/
+        $model = $this->_objectManager->get('\MuliaLestari\ProductsGrid\Model\Product');
 
         $this->addColumn(
             'in_product',

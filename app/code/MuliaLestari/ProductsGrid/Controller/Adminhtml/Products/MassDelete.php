@@ -4,12 +4,12 @@
  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
+namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Products;
 
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Backend\App\Action;
 use Magento\Ui\Component\MassAction\Filter;
-use MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\CollectionFactory;
+use MuliaLestari\ProductsGrid\Model\ResourceModel\Product\CollectionFactory;
 use Magento\Framework\App\ResponseInterface;
 
 class MassDelete extends Action
@@ -25,7 +25,7 @@ class MassDelete extends Action
     protected $collectionFactory;
 
     /**
-     * @param Context $context
+     * @param Action\Context|Context $context
      * @param Filter $filter
      * @param CollectionFactory $collectionFactory
      */
