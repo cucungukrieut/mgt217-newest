@@ -110,7 +110,7 @@ class Products extends \Magento\Backend\Block\Widget\Grid\Extended
      */
     protected function _prepareColumns()
     {
-        /* @var $model \MuliaLestari\ProductsGrid\Model\Slide */
+        /* @var $model \MuliaLestari\ProductsGrid\Model\Contact */
         $model = $this->_objectManager->get('\MuliaLestari\ProductsGrid\Model\Contact');
 
         $this->addColumn(

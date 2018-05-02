@@ -2,10 +2,10 @@
 
 namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
 
-use Magento\Backend\App\Action\Context;
+use Magento\Backend\App\Action;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends \Magento\Backend\App\Action
+class Index extends Action
 {
 
     /**
@@ -14,13 +14,10 @@ class Index extends \Magento\Backend\App\Action
     protected $resultPageFactory;
 
     /**
-     * @param Context $context
+     * @param Action\Context|Context $context
      * @param PageFactory $resultPageFactory
      */
-    public function __construct(
-        Context $context,
-        PageFactory $resultPageFactory
-    ) {
+    public function __construct(Action\Context $context, PageFactory $resultPageFactory) {
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
     }
@@ -44,6 +41,6 @@ class Index extends \Magento\Backend\App\Action
      */
     /*protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('MuliaLestari_ProductsGrid::contacts');
+        return true;
     }*/
 }

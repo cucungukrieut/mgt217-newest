@@ -3,8 +3,9 @@
 namespace MuliaLestari\ProductsGrid\Model;
 
 use Magento\Framework\DataObject\IdentityInterface;
+use \Magento\Framework\Model\AbstractModel;
 
-class Contact extends \Magento\Framework\Model\AbstractModel implements IdentityInterface
+class Contact extends AbstractModel implements IdentityInterface
 {
 
     /**
