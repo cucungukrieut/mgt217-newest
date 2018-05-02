@@ -2,12 +2,7 @@
 
 namespace MuliaLestari\ProductsGrid\Helper;
 
-use \Magento\Framework\App\Helper\AbstractHelper;
-use \Magento\Framework\App\Helper\Context;
-use \Magento\Backend\Model\UrlInterface;
-use \Magento\Store\Model\StoreManagerInterface;
-
-class Data extends AbstractHelper
+class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
 
     /**
@@ -21,11 +16,14 @@ class Data extends AbstractHelper
     protected $storeManager;
 
     /**
-     * @param \Magento\Framework\App\Helper\Context $context
+     * @param \Magento\Framework\App\Helper\Context   $context
      * @param \Magento\Backend\Model\UrlInterface $backendUrl
-     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
      */
-    public function __construct(Context $context, UrlInterface $backendUrl, StoreManagerInterface $storeManager) {
+    public function __construct(
+        \Magento\Framework\App\Helper\Context $context,
+        \Magento\Backend\Model\UrlInterface $backendUrl,
+        \Magento\Store\Model\StoreManagerInterface $storeManager
+    ) {
         parent::__construct($context);
         $this->_backendUrl = $backendUrl;
         $this->storeManager = $storeManager;

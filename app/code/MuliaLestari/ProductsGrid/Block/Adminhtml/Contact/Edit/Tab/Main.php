@@ -1,14 +1,7 @@
 <?php
 namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Contact\Edit\Tab;
 
-use \Magento\Backend\Block\Widget\Form\Generic;
-use \Magento\Backend\Block\Widget\Tab\TabInterface;
-use \Magento\Backend\Block\Template\Context;
-use \Magento\Framework\Registry;
-use \Magento\Framework\Data\FormFactory;
-use \MuliaLestari\ProductsGrid\Helper\Data;
-
-class Main extends Generic //implements TabInterface
+class Main extends \Magento\Backend\Block\Widget\Form\Generic implements \Magento\Backend\Block\Widget\Tab\TabInterface
 {
     /**
      * @var \Magento\Store\Model\System\Store
@@ -24,13 +17,13 @@ class Main extends Generic //implements TabInterface
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Framework\Registry $registry
      * @param \Magento\Framework\Data\FormFactory $formFactory
-     * @param \MuliaLestari\ProductsGrid\Helper\Data $helper
      * @param array $data
      */
-    public function __construct(Context $context,
-        Registry $registry,
-        FormFactory $formFactory,
-        Data $helper,
+    public function __construct(
+        \Magento\Backend\Block\Template\Context $context,
+        \Magento\Framework\Registry $registry,
+        \Magento\Framework\Data\FormFactory $formFactory,
+        \MuliaLestari\ProductsGrid\Helper\Data $helper,
         array $data = []
     ) {
         $this->helper = $helper;
@@ -109,13 +102,13 @@ class Main extends Generic //implements TabInterface
 
         $fieldset->addField(
             'active',
-            'yesno',
+            'select',
             [
                 'label' => __('Active'),
                 'title' => __('Active'),
                 'name' => 'isactive',
                 'required' => true,
-                'options' => ['0' => __('NonActive'), '1' => __('Active')]
+                'options' => ['0' => __('InActive'), '1' => __('Active')]
             ]
         );
 
@@ -218,7 +211,7 @@ class Main extends Generic //implements TabInterface
      * Prepare label for tab
      *
      * @return \Magento\Framework\Phrase
-     *
+     */
     public function getTabLabel()
     {
         return __('Produk');
@@ -228,7 +221,7 @@ class Main extends Generic //implements TabInterface
      * Prepare title for tab
      *
      * @return \Magento\Framework\Phrase
-     *
+     */
     public function getTabTitle()
     {
         return __('Produk');
@@ -236,7 +229,7 @@ class Main extends Generic //implements TabInterface
 
     /**
      * {@inheritdoc}
-     *
+     */
     public function canShowTab()
     {
         return true;
@@ -244,7 +237,7 @@ class Main extends Generic //implements TabInterface
 
     /**
      * {@inheritdoc}
-     *
+     */
     public function isHidden()
     {
         return false;

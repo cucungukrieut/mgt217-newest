@@ -2,13 +2,11 @@
 
 namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Contact\Edit;
 
-
-use \Magento\Backend\Block\Widget\Form\Generic;
 /**
  * Adminhtml attachment edit form block
  *
  */
-class Form extends Generic
+class Form extends \Magento\Backend\Block\Widget\Form\Generic
 {
     /**
      * Prepare form

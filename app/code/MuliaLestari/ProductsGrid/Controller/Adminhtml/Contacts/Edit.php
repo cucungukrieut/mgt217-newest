@@ -3,10 +3,9 @@
 namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
 
 use Magento\Backend\App\Action;
-use \Magento\Framework\View\Result\PageFactory;
-use \Magento\Framework\Registry;
 
-class Edit extends Action{
+class Edit extends \Magento\Backend\App\Action
+{
     /**
      * Core registry
      *
@@ -20,11 +19,15 @@ class Edit extends Action{
     protected $resultPageFactory;
 
     /**
-     * @param \Magento\Backend\App\Action\Context $context
+     * @param Action\Context $context
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      * @param \Magento\Framework\Registry $registry
      */
-    public function __construct(Action\Context $context,PageFactory $resultPageFactory,Registry $registry) {
+    public function __construct(
+        Action\Context $context,
+        \Magento\Framework\View\Result\PageFactory $resultPageFactory,
+        \Magento\Framework\Registry $registry
+    ) {
         $this->resultPageFactory = $resultPageFactory;
         $this->_coreRegistry = $registry;
         parent::__construct($context);
@@ -65,7 +68,7 @@ class Edit extends Action{
         if ($id) {
             $model->load($id);
             if (!$model->getId()) {
-                $this->messageManager->addErrorMessage(__('Produk ini sudah tidak tersedia.'));
+                $this->messageManager->addError(__('This Product no longer exists.'));
                 /** \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
                 $resultRedirect = $this->resultRedirectFactory->create();
 
@@ -86,8 +89,9 @@ class Edit extends Action{
             $id ? __('Edit Produk') : __('Produk Baru'),
             $id ? __('Edit Produk') : __('Produk Baru')
         );
-        $resultPage->getConfig()->getTitle()->prepend(__('List Produk Baru'));
-        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? $model->getTitle() : __('Produk Baru'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Products'));
+        $resultPage->getConfig()->getTitle()
+            ->prepend($model->getId() ? $model->getTitle() : __('Produk Baru'));
 
         return $resultPage;
     }

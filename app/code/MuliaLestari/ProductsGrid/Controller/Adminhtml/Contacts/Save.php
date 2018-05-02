@@ -5,11 +5,8 @@ namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\TestFramework\ErrorLog\Logger;
-use \Magento\Backend\Helper\Js;
-use \MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\CollectionFactory;
-use \Magento\Framework\Exception\LocalizedException;
 
-class Save extends Action
+class Save extends \Magento\Backend\App\Action
 {
     /**
      * @var \Magento\Backend\Helper\Js
@@ -24,10 +21,12 @@ class Save extends Action
     /**
      * \Magento\Backend\Helper\Js $jsHelper
      * @param Action\Context $context
-     * @param \Magento\Backend\Helper\Js $jsHelper
-     * @param \MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\CollectionFactory $contactCollectionFactory
      */
-    public function __construct(Context $context, Js $jsHelper, CollectionFactory $contactCollectionFactory) {
+    public function __construct(
+        Context $context,
+        \Magento\Backend\Helper\Js $jsHelper,
+        \MuliaLestari\ProductsGrid\Model\ResourceModel\Contact\CollectionFactory $contactCollectionFactory
+    ) {
         $this->_jsHelper = $jsHelper;
         $this->_contactCollectionFactory = $contactCollectionFactory;
         parent::__construct($context);
@@ -69,7 +68,7 @@ class Save extends Action
                 //temporary unavailable
                 //$this->saveProducts($model, $data);
 
-                $this->messageManager->addSuccessMessage(__('Anda telah menyimpan produk ini.'));
+                $this->messageManager->addSuccess(__('Anda telah menyimpan produk ini.'));
 
                 $this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
 
@@ -77,12 +76,12 @@ class Save extends Action
                     return $resultRedirect->setPath('*/*/edit', ['produk_id' => $model->getId(), '_current' => true]);
                 }
                 return $resultRedirect->setPath('*/*/');
-            } catch (LocalizedException $e) {
-                $this->messageManager->addErrorMessage($e->getMessage());
+            } catch (\Magento\Framework\Exception\LocalizedException $e) {
+                $this->messageManager->addError($e->getMessage());
             } catch (\RuntimeException $e) {
-                $this->messageManager->addErrorMessage($e->getMessage());
+                $this->messageManager->addError($e->getMessage());
             } catch (\Exception $e) {
-                $this->messageManager->addExceptionMessage($e, __('Terjadi kesalahan saat menyimpan produk.'));
+                $this->messageManager->addException($e, __('Terjadi kesalahan saat menyimpan produk.'));
             }
 
             $this->_getSession()->setFormData($data);

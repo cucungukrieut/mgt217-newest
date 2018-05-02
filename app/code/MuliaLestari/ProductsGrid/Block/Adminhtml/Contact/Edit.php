@@ -2,11 +2,7 @@
 
 namespace MuliaLestari\ProductsGrid\Block\Adminhtml\Contact;
 
-use \Magento\Backend\Block\Widget\Form\Container;
-use \Magento\Backend\Block\Widget\Context;
-use \Magento\Framework\Registry;
-
-class Edit extends Container
+class Edit extends \Magento\Backend\Block\Widget\Form\Container
 {
     /**
      * Core registry
@@ -20,7 +16,11 @@ class Edit extends Container
      * @param \Magento\Framework\Registry $registry
      * @param array $data
      */
-    public function __construct(Context $context,Registry $registry, array $data = []) {
+    public function __construct(
+        \Magento\Backend\Block\Widget\Context $context,
+        \Magento\Framework\Registry $registry,
+        array $data = []
+    ) {
         $this->_coreRegistry = $registry;
         parent::__construct($context, $data);
     }

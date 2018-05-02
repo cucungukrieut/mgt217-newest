@@ -5,7 +5,7 @@ namespace MuliaLestari\ProductsGrid\Controller\Adminhtml\Contacts;
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
 
-class Delete extends Action
+class Delete extends \Magento\Backend\App\Action
 {
 
     /**
@@ -31,14 +31,14 @@ class Delete extends Action
                 $model = $this->_objectManager->create('MuliaLestari\ProductsGrid\Model\Contact');
                 $model->load($id);
                 $model->delete();
-                $this->messageManager->addSuccessMessage(__('Produk telah di hapus.'));
+                $this->messageManager->addSuccess(__('Produk telah di hapus.'));
                 return $resultRedirect->setPath('*/*/');
             } catch (\Exception $e) {
-                $this->messageManager->addErrorMessage($e->getMessage());
+                $this->messageManager->addError($e->getMessage());
                 return $resultRedirect->setPath('*/*/edit', ['produk_id' => $id]);
             }
         }
-        $this->messageManager->addErrorMessage(__('Tidak dapat menemukan produk untuk dihapus.'));
+        $this->messageManager->addError(__('Tidak dapat menemukan produk untuk dihapus.'));
         return $resultRedirect->setPath('*/*/');
     }
 }
