@@ -80,7 +80,7 @@ class Edit extends Action
             $model->setData($data);
         }
 
-        $this->_coreRegistry->register('ws_product', $model);
+        $this->_coreRegistry->register('ml_product', $model);
 
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->_initAction();

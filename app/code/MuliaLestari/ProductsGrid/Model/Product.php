@@ -11,19 +11,19 @@ class Product extends AbstractModel implements IdentityInterface
     /**
      * CMS page cache tag
      */
-    const CACHE_TAG = 'ws_products_grid';
+    const CACHE_TAG = 'ml_products_grid';
 
     /**
      * @var string
      */
-    protected $_cacheTag = 'ws_products_grid';
+    protected $_cacheTag = 'ml_products_grid';
 
     /**
      * Prefix of model events names
      *
      * @var string
      */
-    protected $_eventPrefix = 'ws_products_grid';
+    protected $_eventPrefix = 'ml_products_grid';
 
     /**
      * Initialize resource model

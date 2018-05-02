@@ -47,7 +47,7 @@ class Main extends Generic implements TabInterface
     protected function _prepareForm()
     {
         /* @var $model \MuliaLestari\ProductsGrid\Model\Product */
-        $model = $this->_coreRegistry->registry('ws_product');
+        $model = $this->_coreRegistry->registry('ml_product');
 
         /** @var \Magento\Framework\Data\Form $form */
         $form = $this->_formFactory->create();
