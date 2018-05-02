@@ -30,7 +30,7 @@
 
     </argument>
 
-
+    <!-- Data source grid products -->
     <dataSource name="products_grid_data_source">
         <!-- this is data source name, this is used at many places -->
         <argument name="dataProvider" xsi:type="configurableObject">

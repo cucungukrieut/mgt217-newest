@@ -47,9 +47,18 @@ class Edit extends Action
      */
     protected function _initAction()
     {
+        //get id produuct
+        $id = $this->getRequest()->getParam('produk_id');
+
         // load layout, set active menu and breadcrumbs
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
+        $resultPage->addBreadcrumb(
+            $id ? __('Edit Produk') : __('Produk Baru'),
+            $id ? __('Edit Produk') : __('Produk Baru')
+        );
+        // set title page
+        $resultPage->getConfig()->getTitle()->prepend(__('Produk'));
         return $resultPage;
     }
 
@@ -67,7 +76,7 @@ class Edit extends Action
         if ($id) {
             $model->load($id);
             if (!$model->getId()) {
-                $this->messageManager->addErrorMessage(__('This Product no longer exists.'));
+                $this->messageManager->addErrorMessage(__('Produk ini sudah tidak tersedia.'));
                 /** \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
                 $resultRedirect = $this->resultRedirectFactory->create();
 

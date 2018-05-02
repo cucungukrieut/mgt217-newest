@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
-<!-- Layout 2 column -->
+<!-- Layout 2 column default admin-2columns-left-->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <update handle="editor"/>
     <body>
         <referenceContainer name="content">
+            <!-- Button crud -->
             <block class="MuliaLestari\ProductsGrid\Block\Adminhtml\Product\Edit" name="masterproduct_product_edit"/>
         </referenceContainer>
         <referenceContainer name="left">
+            <!-- Form editor product -->
             <block class="MuliaLestari\ProductsGrid\Block\Adminhtml\Product\Edit\Tabs" name="masterproduct_product_edit_tabs">
                 <block class="MuliaLestari\ProductsGrid\Block\Adminhtml\Product\Edit\Tab\Main" name="masterproduct_product_edit_tab_main"/>
                 <action method="addTab">
