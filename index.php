@@ -18,6 +18,8 @@
  * See COPYING.txt for license details.
  */
 
+$_SERVER['MAGE_PROFILER'] = [ 'drivers' => [['output' => 'MSP\DevTools\Profiler\Driver\Standard\Output\DevTools']] ];
+
 try {
     require __DIR__ . '/app/bootstrap.php';
 } catch (\Exception $e) {

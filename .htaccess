@@ -118,3 +118,5 @@ ErrorDocument 403 /pub/errors/404.php
         Header unset X-UA-Compatible
     </FilesMatch>
 </IfModule>
+
+SetEnv MAGE_PROFILER MSP\DevTools\Profiler\Driver\Standard\Output\DevTools

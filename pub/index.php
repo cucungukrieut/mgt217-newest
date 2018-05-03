@@ -9,6 +9,8 @@
 use Magento\Framework\App\Bootstrap;
 use Magento\Framework\App\Filesystem\DirectoryList;
 
+$_SERVER['MAGE_PROFILER'] = [ 'drivers' => [['output' => 'MSP\DevTools\Profiler\Driver\Standard\Output\DevTools']] ];
+
 try {
     require realpath(__DIR__) . '/../app/bootstrap.php';
 } catch (\Exception $e) {
