@@ -64,7 +64,7 @@ class Products extends Extended
     protected function _construct()
     {
         parent::_construct();
-        $this->setId('masterProducts');
+        $this->setId('productsGrid');
         $this->setDefaultSort('entity_id');
         $this->setDefaultDir('DESC');
         $this->setSaveParametersInSession(true);
@@ -194,8 +194,8 @@ class Products extends Extended
 
     protected function _getSelectedProducts()
     {
-        $product = $this->getProduct();
-        return $product->getProducts($product);
+        $contact = $this->getContact();
+        return $contact->getProducts($contact);
     }
 
     /**
@@ -205,8 +205,8 @@ class Products extends Extended
      */
     public function getSelectedProducts()
     {
-        $product = $this->getProduct();
-        $selected = $product->getProducts($product);
+        $contact = $this->getContact();
+        $selected = $contact->getProducts($contact);
 
         if (!is_array($selected)) {
             $selected = [];
@@ -214,14 +214,14 @@ class Products extends Extended
         return $selected;
     }
 
-    protected function getProduct()
+    protected function getContact()
     {
-        $productId = $this->getRequest()->getParam('produk_id');
-        $product   = $this->contactFactory->create();
-        if ($productId) {
-            $product->load($productId);
+        $contactId = $this->getRequest()->getParam('produk_id');
+        $contact   = $this->contactFactory->create();
+        if ($contactId) {
+            $contact->load($contactId);
         }
-        return $product;
+        return $contact;
     }
 
     /**

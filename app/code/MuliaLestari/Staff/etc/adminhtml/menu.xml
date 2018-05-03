@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MuliaLestari_Staff::grid" title="MuliaLestari Staffing Grid" module="MuliaLestari_Staff" sortOrder="20" parent="MuliaLestari_MasterProducts::mulialestari" action="staff/grid" resource="MuliaLestari_Staff::grid"/>
+    </menu>
+</config>

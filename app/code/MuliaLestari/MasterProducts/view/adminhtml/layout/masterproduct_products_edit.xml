@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Layout 2 column default admin-2columns-left || admin-1column -->
+<!-- Layout 2 column default admin-2columns-left-->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <update handle="editor"/>
     <body>
@@ -8,7 +8,7 @@
             <block class="MuliaLestari\MasterProducts\Block\Adminhtml\Product\Edit" name="masterproduct_product_edit"/>
         </referenceContainer>
         <referenceContainer name="left">
-            <!-- Form editor tab product -->
+            <!-- Form editor product -->
             <block class="MuliaLestari\MasterProducts\Block\Adminhtml\Product\Edit\Tabs" name="masterproduct_product_edit_tabs">
                 <block class="MuliaLestari\MasterProducts\Block\Adminhtml\Product\Edit\Tab\Main" name="masterproduct_product_edit_tab_main"/>
                 <action method="addTab">
@@ -18,9 +18,9 @@
                 <action method="addTab">
                     <argument name="name" xsi:type="string">attachment_products</argument>
                     <argument name="block" xsi:type="array">
-                        <item name="label" xsi:type="string">Grouping Product</item>
-                        <item name="title" xsi:type="string">Grouping Product</item>
-                        <item name="url" xsi:type="helper" helper="MuliaLestari\MasterProducts\Helper\Data::getMasterProductsUrl"/>
+                        <item name="label" xsi:type="string">Pilih Produk</item>
+                        <item name="title" xsi:type="string">Pilih Produk</item>
+                        <item name="url" xsi:type="helper" helper="MuliaLestari\MasterProducts\Helper\Data::getProductsGridUrl"/>
                         <item name="class" xsi:type="string">ajax</item>
                     </argument>
                 </action>

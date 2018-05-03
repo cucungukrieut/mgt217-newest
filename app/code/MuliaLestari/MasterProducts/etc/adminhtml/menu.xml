@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="MuliaLestari_MasterProducts::productsgrid" title="Data Master Produk" module="MuliaLestari_MasterProducts" sortOrder="100" parent="Magento_Catalog::catalog" resource="MuliaLestari_MasterProducts::productsgrid" action="masterproduct/products"/>
+        <add id="MuliaLestari_MasterProducts::mulialestari" title="Mulia Lestari" module="MuliaLestari_MasterProducts" sortOrder="20" resource="MuliaLestari_MasterProducts::mulialestari" />
+        <add id="MuliaLestari_MasterProducts::productsgrid" title="Data Master Produk" module="MuliaLestari_MasterProducts" sortOrder="10" parent="MuliaLestari_MasterProducts::mulialestari" resource="MuliaLestari_MasterProducts::productsgrid" action="masterproduct/products"/>
     </menu>
 </config>
