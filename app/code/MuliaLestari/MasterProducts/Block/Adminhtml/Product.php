@@ -8,6 +8,10 @@ use \Magento\Backend\Block\Widget\Grid\Container;
  */
 class Product extends Container
 {
+
+    protected $context;
+
+    protected $data;
     /**
      * Block constructor
      *

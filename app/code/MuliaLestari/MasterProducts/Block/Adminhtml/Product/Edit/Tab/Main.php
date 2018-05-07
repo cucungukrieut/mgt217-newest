@@ -109,14 +109,14 @@ class Main extends Generic implements TabInterface
         );
 
         $fieldset->addField(
-            'active',
+            'isactive',
             'select',
             [
+                'name' => 'isactive',
                 'label' => __('Active'),
                 'title' => __('Active'),
-                'name' => 'isactive',
                 'required' => true,
-                'options' => ['0' => __('InActive'), '1' => __('Active')]
+                'options' => ['0' => __('NonActive'), '1' => __('Active')]
             ]
         );
 

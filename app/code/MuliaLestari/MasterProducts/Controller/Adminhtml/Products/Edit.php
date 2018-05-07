@@ -84,6 +84,7 @@ class Edit extends Action
         }
 
         $data = $this->_objectManager->get('Magento\Backend\Model\Session')->getFormData(true);
+
         if (!empty($data)) {
             $model->setData($data);
         }
