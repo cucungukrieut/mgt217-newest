@@ -5,6 +5,7 @@ namespace MuliaLestari\MasterProducts\Controller\Adminhtml\Products;
 use Magento\Backend\App\Action;
 use \Magento\Framework\View\Result\PageFactory;
 use \Magento\Framework\Registry;
+use Magento\Framework\Controller\ResultFactory;
 
 class Edit extends Action
 {
@@ -77,7 +78,8 @@ class Edit extends Action
             if (!$model->getId()) {
                 $this->messageManager->addErrorMessage(__('Produk ini sudah tidak tersedia.'));
                 /** \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-                $resultRedirect = $this->resultRedirectFactory->create();
+                //$resultRedirect = $this->resultRedirectFactory->create();
+                $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
 
                 return $resultRedirect->setPath('*/*/');
             }

@@ -116,7 +116,8 @@ class Main extends Generic implements TabInterface
                 'label' => __('Active'),
                 'title' => __('Active'),
                 'required' => true,
-                'options' => ['0' => __('NonActive'), '1' => __('Active')]
+                //'options' => ['0' => __('NonActive'), '1' => __('Active')]
+                'options' => ['No' => __('Tidak'), 'Yes' => __('Ya')]
             ]
         );
 

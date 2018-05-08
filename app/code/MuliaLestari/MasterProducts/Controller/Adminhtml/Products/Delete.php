@@ -4,6 +4,7 @@ namespace MuliaLestari\MasterProducts\Controller\Adminhtml\Products;
 
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
+use Magento\Framework\Controller\ResultFactory;
 
 class Delete extends Action
 {
@@ -25,7 +26,8 @@ class Delete extends Action
     {
         $id = $this->getRequest()->getParam('produk_id');
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-        $resultRedirect = $this->resultRedirectFactory->create();
+        //$resultRedirect = $this->resultRedirectFactory->create();
+        $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         if ($id) {
             try {
                 $model = $this->_objectManager->create('MuliaLestari\MasterProducts\Model\Product');

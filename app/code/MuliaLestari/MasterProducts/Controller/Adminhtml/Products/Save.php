@@ -7,6 +7,7 @@ use Magento\TestFramework\ErrorLog\Logger;
 use \Magento\Backend\Helper\Js;
 use \MuliaLestari\MasterProducts\Model\ResourceModel\Product\CollectionFactory;
 use \Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Controller\ResultFactory;
 
 class Save extends Action
 {
@@ -50,7 +51,8 @@ class Save extends Action
         $data = $this->getRequest()->getPostValue();
 
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-        $resultRedirect = $this->resultRedirectFactory->create();
+        //$resultRedirect = $this->resultRedirectFactory->create();
+        $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         if ($data) {
 
             /** @var \MuliaLestari\MasterProducts\Model\Product $model */
@@ -88,5 +90,6 @@ class Save extends Action
             return $resultRedirect->setPath('*/*/edit', ['produk_id' => $this->getRequest()->getParam('produk_id')]);
         }
         return $resultRedirect->setPath('*/*/');
+
     }
 }
